@@ -1,0 +1,17 @@
+name = "i18n"
+description = ""
+version = "0.1.0-dev"
+
+authors = ["H. ROMANO"]
+maintainers = ["H. ROMANO <shuihuzhuan@free.fr>"]
+maintainers-logins = ["HROMANO"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = ""
+tags = []
+
+[[depends-on]]
+gettext = "*"
+vss = "^25.0.0"
+
+[[pins]]
+gettext = { url = "https://github.com/HROMANO/gettext.git" }
