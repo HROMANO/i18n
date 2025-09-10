@@ -8,29 +8,17 @@ package I18n is
 
    subtype Virtual_String is VSS.Strings.Virtual_String;
 
-   type Locale_Category is record
-      Value : Gettext.Locale.Locale_Category;
-   end record;
+   subtype Locale_Category is Gettext.Locale.Locale_Category;
 
    ----------------------------------------------------------------------------
 
-   LC_CTYPE : constant Locale_Category := (Value => Gettext.Locale.LC_CTYPE);
-
-   LC_COLLATE : constant Locale_Category :=
-     (Value => Gettext.Locale.LC_COLLATE);
-
-   LC_MONETARY : constant Locale_Category :=
-     (Value => Gettext.Locale.LC_MONETARY);
-
-   LC_NUMERIC : constant Locale_Category :=
-     (Value => Gettext.Locale.LC_NUMERIC);
-
-   LC_TIME : constant Locale_Category := (Value => Gettext.Locale.LC_TIME);
-
-   LC_MESSAGES : constant Locale_Category :=
-     (Value => Gettext.Locale.LC_MESSAGES);
-
-   LC_ALL : constant Locale_Category := (Value => Gettext.Locale.LC_ALL);
+   LC_CTYPE    : Locale_Category renames Gettext.Locale.LC_CTYPE;
+   LC_COLLATE  : Locale_Category renames Gettext.Locale.LC_COLLATE;
+   LC_MONETARY : Locale_Category renames Gettext.Locale.LC_MONETARY;
+   LC_NUMERIC  : Locale_Category renames Gettext.Locale.LC_NUMERIC;
+   LC_TIME     : Locale_Category renames Gettext.Locale.LC_TIME;
+   LC_MESSAGES : Locale_Category renames Gettext.Locale.LC_MESSAGES;
+   LC_ALL      : Locale_Category renames Gettext.Locale.LC_ALL;
 
    ----------------------------------------------------------------------------
 

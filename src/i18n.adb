@@ -105,7 +105,7 @@ package body I18n is
      (Domain   : Virtual_String;
       Message  : Virtual_String;
       Category : Locale_Category) return Virtual_String
-   is (+Gettext.Domain_Category_Get_Text (+Domain, +Message, Category.Value));
+   is (+Gettext.Domain_Category_Get_Text (+Domain, +Message, Category));
 
    ----------------------------------------------------------------------------
 
@@ -116,7 +116,7 @@ package body I18n is
       N        : Natural;
       Category : Locale_Category) return Virtual_String
    is (+Gettext.Domain_Category_N_Get_Text
-          (+Domain, +Singular, +Plural, N, Category.Value));
+          (+Domain, +Singular, +Plural, N, Category));
 
    ----------------------------------------------------------------------------
 
