@@ -18,33 +18,57 @@ package body I18n is
 
    ----------------------------------------------------------------------------
 
+   Default_Domain    : constant Ada.Strings.UTF_Encoding.UTF_8_String :=
+     Gettext.Get_Text_Domain;
+   Default_Directory : constant Ada.Strings.UTF_Encoding.UTF_8_String :=
+     Gettext.Get_Text_Domain_Directory (Default_Domain);
+
+   ----------------------------------------------------------------------------
+
    function Init
-     (Domain : Virtual_String; Directory : Virtual_String) return I18n_Error
+     (Domain : Virtual_String := ""; Directory : Virtual_String := "")
+      return I18n_Error
    is
 
-      Temporary_Domain : Ada.Strings.UTF_Encoding.UTF_8_String := +Domain;
+      use type Virtual_String;
+
+      Temporary_Domain    : Virtual_String;
+      Temporary_Directory : Virtual_String;
 
    begin
 
       if Gettext.Locale.Set_Locale = False then
          return Locale_Error;
+      end if;
 
-      elsif Gettext.Set_Text_Domain_Directory (Temporary_Domain, +Directory)
+      if Directory = "" then
+         Temporary_Directory := +Default_Directory;
+      else
+         Temporary_Directory := Directory;
+      end if;
+
+      if Domain = "" then
+         Temporary_Domain := +Default_Domain;
+      else
+         Temporary_Domain := Domain;
+      end if;
+
+      if Gettext.Set_Text_Domain_Directory (+Temporary_Domain, +Directory)
         = False
       then
          return Domain_Directory_Error;
+      end if;
 
-      elsif Gettext.Set_Text_Domain (Temporary_Domain) = False then
+      if Gettext.Set_Text_Domain (+Temporary_Domain) = False then
          return Text_Domain_Error;
+      end if;
 
-      elsif Gettext.Set_Text_Domain_Codeset (Temporary_Domain, "utf8") = False
+      if Gettext.Set_Text_Domain_Codeset (+Temporary_Domain, "utf8") = False
       then
          return Domain_Codeset_Error;
-
-      else
-         return No_Error;
-
       end if;
+
+      return No_Error;
 
    end Init;
 

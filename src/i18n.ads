@@ -44,7 +44,8 @@ package I18n is
    ----------------------------------------------------------------------------
 
    function Init
-     (Domain : Virtual_String; Directory : Virtual_String) return I18n_Error;
+     (Domain : Virtual_String := ""; Directory : Virtual_String := "")
+      return I18n_Error;
 
    function Translate (Message : Virtual_String) return Virtual_String;
 
