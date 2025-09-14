@@ -1,6 +1,6 @@
 with VSS.Strings;
 
-with Gettext.Locale;
+with Gettexts.Locale;
 
 package I18n is
 
@@ -8,17 +8,21 @@ package I18n is
 
    subtype Virtual_String is VSS.Strings.Virtual_String;
 
-   subtype Locale_Category is Gettext.Locale.Locale_Category;
+   subtype Locale_Category is Gettexts.Locale.Locale_Category;
 
    ----------------------------------------------------------------------------
 
-   LC_CTYPE    : Locale_Category renames Gettext.Locale.LC_CTYPE;
-   LC_COLLATE  : Locale_Category renames Gettext.Locale.LC_COLLATE;
-   LC_MONETARY : Locale_Category renames Gettext.Locale.LC_MONETARY;
-   LC_NUMERIC  : Locale_Category renames Gettext.Locale.LC_NUMERIC;
-   LC_TIME     : Locale_Category renames Gettext.Locale.LC_TIME;
-   LC_MESSAGES : Locale_Category renames Gettext.Locale.LC_MESSAGES;
-   LC_ALL      : Locale_Category renames Gettext.Locale.LC_ALL;
+   function LC_CTYPE return Locale_Category renames Gettexts.Locale.LC_CTYPE;
+   function LC_COLLATE return Locale_Category
+   renames Gettexts.Locale.LC_COLLATE;
+   function LC_MONETARY return Locale_Category
+   renames Gettexts.Locale.LC_MONETARY;
+   function LC_NUMERIC return Locale_Category
+   renames Gettexts.Locale.LC_NUMERIC;
+   function LC_TIME return Locale_Category renames Gettexts.Locale.LC_TIME;
+   function LC_MESSAGES return Locale_Category
+   renames Gettexts.Locale.LC_MESSAGES;
+   function LC_ALL return Locale_Category renames Gettexts.Locale.LC_ALL;
 
    ----------------------------------------------------------------------------
 
