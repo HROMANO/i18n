@@ -2,13 +2,13 @@
 # Traductions françaises du paquet I.
 # Copyright (C) 2025 THE I'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the I package.
-# U-ATLAS\I65043 <shuihuzhuan@free.fr>, 2025.
+# Shuihuzhuan <shuihuzhuan@free.fr>, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Example 2025.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-14 22:47+0200\n"
+"POT-Creation-Date: 2025-09-14 22:54+0200\n"
 "PO-Revision-Date: 2025-09-09 14:29+0200\n"
 "Last-Translator: Shuihuzhuan <shuihuzhuan@free.fr>\n"
 "Language-Team: French\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Translation: 'This is an example' = 'This is an example'"
 msgstr "Traduction: 'This is an example' = 'Ceci est un exemple'"
 
-#: src/example.adb:35
+#: src/example.adb:35 src/example.adb:36
 msgid "There's a cat."
 msgid_plural "There are cats."
 msgstr[0] "Il y a un chat."
