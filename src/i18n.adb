@@ -19,9 +19,9 @@ package body I18n is
    ----------------------------------------------------------------------------
 
    Default_Domain    : constant Ada.Strings.UTF_Encoding.UTF_8_String :=
-     Gettexts.Get_Text_Domain;
+     Gettexts.Get_Domain_Name;
    Default_Directory : constant Ada.Strings.UTF_Encoding.UTF_8_String :=
-     Gettexts.Get_Text_Domain_Directory (Default_Domain);
+     Gettexts.Get_Domain_Directory (Default_Domain);
 
    ----------------------------------------------------------------------------
 
@@ -53,17 +53,17 @@ package body I18n is
          Temporary_Domain := Domain;
       end if;
 
-      if Gettexts.Set_Text_Domain_Directory (+Temporary_Domain, +Directory)
+      if Gettexts.Set_Domain_Directory (+Temporary_Domain, +Directory)
         = False
       then
          return Domain_Directory_Error;
       end if;
 
-      if Gettexts.Set_Text_Domain (+Temporary_Domain) = False then
+      if Gettexts.Set_Domain_Name (+Temporary_Domain) = False then
          return Text_Domain_Error;
       end if;
 
-      if Gettexts.Set_Text_Domain_Codeset (+Temporary_Domain, "utf8") = False
+      if Gettexts.Set_Domain_Codeset (+Temporary_Domain, "utf8") = False
       then
          return Domain_Codeset_Error;
       end if;
@@ -82,13 +82,13 @@ package body I18n is
    function Translate
      (Singular : Virtual_String; Plural : Virtual_String; N : Natural)
       return Virtual_String
-   is (+Gettexts.N_Get_Text (+Singular, +Plural, N));
+   is (+Gettexts.Get_Plural_Text (+Singular, +Plural, N));
 
    ----------------------------------------------------------------------------
 
    function Translate
      (Domain : Virtual_String; Message : Virtual_String) return Virtual_String
-   is (+Gettexts.Domain_Get_Text (+Domain, +Message));
+   is (+Gettexts.Get_Text_With_Domain (+Domain, +Message));
 
    ----------------------------------------------------------------------------
 
@@ -97,7 +97,7 @@ package body I18n is
       Singular : Virtual_String;
       Plural   : Virtual_String;
       N        : Natural) return Virtual_String
-   is (+Gettexts.Domain_N_Get_Text (+Domain, +Singular, +Plural, N));
+   is (+Gettexts.Get_Plural_Text_With_Domain (+Domain, +Singular, +Plural, N));
 
    ----------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ package body I18n is
      (Domain   : Virtual_String;
       Message  : Virtual_String;
       Category : Locale_Category) return Virtual_String
-   is (+Gettexts.Domain_Category_Get_Text (+Domain, +Message, Category));
+   is (+Gettexts.Get_Text_With_Domain_Category (+Domain, +Message, Category));
 
    ----------------------------------------------------------------------------
 
@@ -115,7 +115,7 @@ package body I18n is
       Plural   : Virtual_String;
       N        : Natural;
       Category : Locale_Category) return Virtual_String
-   is (+Gettexts.Domain_Category_N_Get_Text
+   is (+Gettexts.Get_Plural_Text_With_Domain_Category
           (+Domain, +Singular, +Plural, N, Category));
 
    ----------------------------------------------------------------------------
