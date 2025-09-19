@@ -66,6 +66,42 @@ package I18n is
       N        : Natural;
       Category : Locale_Category) return Virtual_String;
 
+   function Translate_With_Context
+     (Context : Virtual_String; Message : Virtual_String)
+      return Virtual_String;
+
+   function Translate_With_Context
+     (Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String;
+
+   function Translate_With_Context
+     (Domain  : Virtual_String;
+      Context : Virtual_String;
+      Message : Virtual_String) return Virtual_String;
+
+   function Translate_With_Context
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String;
+
+   function Translate_With_Context
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Message  : Virtual_String;
+      Category : Locale_Category) return Virtual_String;
+
+   function Translate_With_Context
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural;
+      Category : Locale_Category) return Virtual_String;
+
    ----------------------------------------------------------------------------
 
 end I18n;

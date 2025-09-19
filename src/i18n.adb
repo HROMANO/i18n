@@ -53,8 +53,7 @@ package body I18n is
          Temporary_Domain := Domain;
       end if;
 
-      if Gettexts.Set_Domain_Directory (+Temporary_Domain, +Directory)
-        = False
+      if Gettexts.Set_Domain_Directory (+Temporary_Domain, +Directory) = False
       then
          return Domain_Directory_Error;
       end if;
@@ -63,8 +62,7 @@ package body I18n is
          return Text_Domain_Error;
       end if;
 
-      if Gettexts.Set_Domain_Codeset (+Temporary_Domain, "utf8") = False
-      then
+      if Gettexts.Set_Domain_Codeset (+Temporary_Domain, "utf8") = False then
          return Domain_Codeset_Error;
       end if;
 
@@ -117,6 +115,63 @@ package body I18n is
       Category : Locale_Category) return Virtual_String
    is (+Gettexts.Get_Plural_Text_With_Domain_Category
           (+Domain, +Singular, +Plural, N, Category));
+
+   ----------------------------------------------------------------------------
+
+   function Translate_With_Context
+     (Context : Virtual_String; Message : Virtual_String) return Virtual_String
+   is (+Gettexts.Get_Text_With_Context (+Context, +Message));
+
+   ----------------------------------------------------------------------------
+
+   function Translate_With_Context
+     (Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String
+   is (+Gettexts.Get_Plural_Text_With_Context
+          (+Context, +Singular, +Plural, N));
+
+   ----------------------------------------------------------------------------
+
+   function Translate_With_Context
+     (Domain  : Virtual_String;
+      Context : Virtual_String;
+      Message : Virtual_String) return Virtual_String
+   is (+Gettexts.Get_Text_With_Domain_Context (+Domain, +Context, +Message));
+
+   ----------------------------------------------------------------------------
+
+   function Translate_With_Context
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String
+   is (+Gettexts.Get_Plural_Text_With_Domain_Context
+          (+Domain, +Context, +Singular, +Plural, N));
+
+   ----------------------------------------------------------------------------
+
+   function Translate_With_Context
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Message  : Virtual_String;
+      Category : Locale_Category) return Virtual_String
+   is (+Gettexts.Get_Text_With_Domain_Context_Category
+          (+Domain, +Context, +Message, Category));
+
+   ----------------------------------------------------------------------------
+
+   function Translate_With_Context
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural;
+      Category : Locale_Category) return Virtual_String
+   is (+Gettexts.Get_Plural_Text_With_Domain_Context_Category
+          (+Domain, +Context, +Singular, +Plural, N, Category));
 
    ----------------------------------------------------------------------------
 
