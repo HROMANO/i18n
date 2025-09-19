@@ -10,8 +10,5 @@ website = ""
 tags = []
 
 [[depends-on]]
-gettext = "*"
+gettext = "^25.9.0"
 vss = "^25.0.0"
-
-[[pins]]
-gettext = { url = "https://github.com/HROMANO/gettext.git" }
