@@ -104,4 +104,74 @@ package I18n is
 
    ----------------------------------------------------------------------------
 
+   -- Common shortcuts
+
+   function Tr (Message : Virtual_String) return Virtual_String
+   renames Translate;
+
+   function Tr
+     (Singular : Virtual_String; Plural : Virtual_String; N : Natural)
+      return Virtual_String renames Translate;
+
+   function Tr
+     (Domain : Virtual_String; Message : Virtual_String) return Virtual_String
+   renames Translate;
+
+   function Tr
+     (Domain   : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String renames Translate;
+
+   function Tr
+     (Domain   : Virtual_String;
+      Message  : Virtual_String;
+      Category : Locale_Category) return Virtual_String renames Translate;
+
+   function Tr
+     (Domain   : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural;
+      Category : Locale_Category) return Virtual_String renames Translate;
+
+   function Ctr
+     (Context : Virtual_String; Message : Virtual_String) return Virtual_String
+   renames Translate_With_Context;
+
+   function Ctr
+     (Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String renames Translate_With_Context;
+
+   function Ctr
+     (Domain  : Virtual_String;
+      Context : Virtual_String;
+      Message : Virtual_String) return Virtual_String
+   renames Translate_With_Context;
+
+   function Ctr
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural) return Virtual_String renames Translate_With_Context;
+
+   function Ctr
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Message  : Virtual_String;
+      Category : Locale_Category) return Virtual_String
+   renames Translate_With_Context;
+
+   function Ctr
+     (Domain   : Virtual_String;
+      Context  : Virtual_String;
+      Singular : Virtual_String;
+      Plural   : Virtual_String;
+      N        : Natural;
+      Category : Locale_Category) return Virtual_String
+   renames Translate_With_Context;
+
 end I18n;
